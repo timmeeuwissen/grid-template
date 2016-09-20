@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Progressive Grid Template</title>
+
+  <link rel="stylesheet" href="public/css/testpage.css">
+  <link rel="stylesheet" href="public/css/grid.css">
+
+  <script src="bower_components/jquery/dist/jquery.min.js" lang="javascript"></script>
+  <script src="bower_components/lodash/dist/lodash.min.js" lang="javascript"></script>
+  <script src="public/js/grid.js" lang="javascript"></script>
+</head>
+
+<body>
+
+  <div class="grid" data-grid-dim-x="" data-grid-config="{minItemWidth: 70, maxItems: 12}">
+
+    <script data-grid-template="item" type="text/x-template">
+      <div class="grid__tile" data-grid-dim-x="<%- data.dim.x %>" data-grid-dim-y="<%- data.dim.y %>">
+        <div class="grid__tile-icon" data-grid-icon="<%- data.icon %>">
+          <span class="grid__tile-title">
+            <%- data.title %>
+          </span>
+        </div>
+      </div>
+    </script>
+
+  </div>
+
+</body>
+
+</html>

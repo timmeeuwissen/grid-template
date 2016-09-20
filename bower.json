@@ -1,0 +1,28 @@
+{
+  "name": "grid-template",
+  "description": "Project to gain some traction on the ideas around progressive grids",
+  "main": "index.js",
+  "authors": [
+    "Tim Meeuwissen"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "progressive",
+    "menu"
+  ],
+  "homepage": "https://github.com/timmeeuwissen/grid-template",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0"
+  },
+  "devDependencies": {
+    "lodash": "^4.15.0"
+  }
+}

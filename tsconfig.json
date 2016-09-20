@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outFile": "public/js/grid.js",
+        "sourceMap": true
+    },
+    "files": [
+        "ts/grid.ts"
+    ]
+}

@@ -1,0 +1,48 @@
+
+@function translate-media-condition($cond) {
+
+  $breakpoints: (phone: 320px, tablet: 768px, desktop: 1200px);
+
+  $condMap: (
+    "screen": "only screen",
+    "print": "only print",
+    "retina": "(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 120dpi)",
+
+    ">desktop": "(min-width: #{map-get($breakpoints, desktop) + 1})",
+    "<desktop": "(max-width: #{map-get($breakpoints, desktop)})",
+    ">tablet": "(min-width: #{map-get($breakpoints, tablet) + 1})",
+    "<tablet": "(max-width: #{map-get($breakpoints, tablet)})",
+    ">phone": "(min-width: #{map-get($breakpoints, phone) + 1})",
+    "<phone": "(max-width: #{map-get($breakpoints, phone)})",
+
+    "phone": "(max-width: #{map-get($breakpoints, phone)})",
+    "tablet": "(min-width: #{map-get($breakpoints, phone) + 1}) and (max-width: #{map-get($breakpoints, tablet)})",
+    "desktop": "(min-width: #{map-get($breakpoints, tablet) + 1})"
+  );
+
+  $mapResult: map-get( $condMap, $cond );
+  $response: $mapResult;
+  @if $mapResult == null {
+    $response: $cond;
+  }
+  @return $response;
+
+}
+
+
+@mixin media($args...) {
+
+  $query: "";
+  @each $arg in $args {
+
+    $op: "";
+    @if ( $query != "" ) {
+      $op: " and ";
+    }
+
+    $query: $query + $op + translate-media-condition($arg);
+
+  }
+
+  @media #{$query}  { @content; }
+}
