@@ -59,7 +59,8 @@ export default class GridController {
     if (!this.updateSizes() || !this.updateItemsOnLine()) {
       return false;
     }
-
+    
+    this.renderer.render(this.itemsOnLine);
     return true;
   }
 
